@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Data} from "@angular/router";
+import {PipesService} from "../../services/pipes.service";
 
 @Component({
   selector: 'app-built-in-pipes',
@@ -17,8 +18,11 @@ export class BuiltInPipesComponent implements OnInit {
     addresses: ["addr 1", "addr 2"]
   };
 
-  constructor() { }
+  dateAmount!: any;
+
+  constructor(private pipes: PipesService) { }
 
   ngOnInit(): void {
+    this.dateAmount = this.pipes.getDateAmount();
   }
 }
